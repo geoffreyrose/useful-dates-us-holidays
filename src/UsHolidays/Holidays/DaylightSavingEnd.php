@@ -1,0 +1,34 @@
+<?php
+
+namespace UsHolidays\Holidays;
+
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
+use UsefulDates\Enums\RepeatFrequency;
+
+class DaylightSavingEnd extends \UsHolidays\Abstracts\HolidayUsefulDateAbstract
+{
+    public function __construct()
+    {
+        $this->name = 'Daylight Saving (End)';
+        $this->additional_search_names = [
+            'DAYLIGHT SAVING (END)',
+            'DAYLIGHT SAVING END',
+            'DAYLIGHT SAVINGS (END)',
+            'DAYLIGHT SAVINGS END',
+        ];
+        $this->start_date = Carbon::create(1918, 11, 1, 0, 0, 0);
+        $this->is_repeated = true;
+        $this->repeat_frequency = RepeatFrequency::YEARLY;
+    }
+
+    public function date(): Carbon
+    {
+        $date = Carbon::create($this->currentDate->year, 11, 1, 0, 0, 0);
+        if ($date->dayOfWeek !== CarbonInterface::SUNDAY) {
+            $date->next(CarbonInterface::SUNDAY);
+        }
+
+        return $date;
+    }
+}

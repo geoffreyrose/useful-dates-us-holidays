@@ -1,0 +1,36 @@
+{
+    "name": "geoffreyrose/useful-dates-us-holidays",
+    "description": "Useful Dates -  US Holidays Extension",
+    "keywords": ["PHP", "Laravel", "Useful Dates", "CARBON", "US Holidays"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "geoffreyrose/useful-dates": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "UsHolidays\\": "src/UsHolidays"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "geoffreyrose",
+            "email": "geoffrey@geoffreyrose.io"
+        }
+    ],
+    "require-dev": {
+        "laravel/pint": "^1.20",
+        "pestphp/pest": "^4.1"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
