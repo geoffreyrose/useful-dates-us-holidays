@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/geoffreyrose/useful-dates-us-holidays?style=flat-square)](https://github.com/geoffreyrose/useful-dates-us-holidays/blob/main/LICENSE)
 </div>
 
-# US Holidays for Useful Dates - PHP + Laravel Facade
+# US Holidays Extension For Useful Dates
 
 **Work in progress, not ready for production. It may never be, just something I'm experimenting with.**
 
