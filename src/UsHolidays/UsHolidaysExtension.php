@@ -70,7 +70,7 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
         ];
     }
 
-    public function isBankHoliday(): bool
+    public function isBankHoliday(): ?bool
     {
         $usefulDates = $this->getUsefulDate();
 
@@ -78,14 +78,16 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             if (get_parent_class($usefulDate) !== HolidayUsefulDateAbstract::class) {
                 if ($usefulDate?->is_bank_holiday) {
                     return true;
+                } else {
+                    return false;
                 }
             }
         }
 
-        return false;
+        return null;
     }
 
-    public function isFederalHoliday(): bool
+    public function isFederalHoliday(): ?bool
     {
         $usefulDates = $this->getUsefulDate();
 
@@ -93,10 +95,12 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             if (get_parent_class($usefulDate) !== HolidayUsefulDateAbstract::class) {
                 if ($usefulDate?->is_federal_holiday) {
                     return true;
+                } else {
+                    return false;
                 }
             }
         }
 
-        return false;
+        return null;
     }
 }
