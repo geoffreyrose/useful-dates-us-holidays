@@ -2,6 +2,7 @@
 
 namespace UsHolidays;
 
+use Carbon\CarbonInterface;
 use UsefulDates\Abstracts\UsefulDatesExtensionAbstract;
 use UsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -9,7 +10,7 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
 {
     public static string $name = 'US Holidays';
 
-    public static string $description = 'US Holidays';
+    public static string $description = 'Adds 42 US Holidays to Useful Dates as an extension.';
 
     public static bool $hasMethods = true;
 
@@ -72,35 +73,82 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
 
     public function isBankHoliday(): ?bool
     {
-        $usefulDates = $this->getUsefulDate();
-
+        $dayOfWeek = $this->usefulDates->date->dayOfWeek;
+        $isUsHoliday = false;
+        $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
-            if (get_parent_class($usefulDate) !== HolidayUsefulDateAbstract::class) {
-                if ($usefulDate?->is_bank_holiday) {
+            if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+                $isUsHoliday = true;
+
+                if (in_array($dayOfWeek, [
+                    CarbonInterface::MONDAY,
+                    CarbonInterface::TUESDAY,
+                    CarbonInterface::WEDNESDAY,
+                    CarbonInterface::THURSDAY,
+                    CarbonInterface::FRIDAY,
+                ]) && $usefulDate?->is_bank_holiday) {
                     return true;
-                } else {
-                    return false;
                 }
             }
         }
 
-        return null;
+        if ($dayOfWeek === CarbonInterface::MONDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay(1));
+            foreach ($usefulDates as $usefulDate) {
+                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+                    if ($usefulDate?->is_bank_holiday) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return $isUsHoliday ? false : null;
     }
 
     public function isFederalHoliday(): ?bool
     {
-        $usefulDates = $this->getUsefulDate();
-
+        $dayOfWeek = $this->usefulDates->date->dayOfWeek;
+        $isUsHoliday = false;
+        $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
-            if (get_parent_class($usefulDate) !== HolidayUsefulDateAbstract::class) {
-                if ($usefulDate?->is_federal_holiday) {
+            if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+                $isUsHoliday = true;
+
+                if (in_array($dayOfWeek, [
+                    CarbonInterface::MONDAY,
+                    CarbonInterface::TUESDAY,
+                    CarbonInterface::WEDNESDAY,
+                    CarbonInterface::THURSDAY,
+                    CarbonInterface::FRIDAY,
+                ]) && $usefulDate?->is_federal_holiday) {
                     return true;
-                } else {
-                    return false;
                 }
             }
         }
 
-        return null;
+        if ($dayOfWeek === CarbonInterface::MONDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay(1));
+            foreach ($usefulDates as $usefulDate) {
+                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+                    if ($usefulDate?->is_federal_holiday) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        if ($dayOfWeek === CarbonInterface::FRIDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->addDay(1));
+            foreach ($usefulDates as $usefulDate) {
+                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+                    if ($usefulDate?->is_federal_holiday) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return $isUsHoliday ? false : null;
     }
 }

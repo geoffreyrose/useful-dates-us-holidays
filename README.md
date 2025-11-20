@@ -85,6 +85,21 @@ $usefulDates->addExtension(\UsHolidays\UsHolidaysExtension::class);
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
 ```
 
+
+### Methods
+
+#### isBankHoliday(): ?bool
+
+Check if date is a Bank Holiday and the day it is observed on. IE: if the holiday falls on Sunday, the holiday is observed the next day (Monday). Note: Bank holidays are Monday - Friday Only. Holidays that are always on weekends are not considered bank holidays. Also holidays that are Bank Holidays but fall on Saturday are NOT observed on the previous Friday. 
+
+Returns boolean or null if the date is not a US Holiday a part of this extension.
+
+#### isFederalHoliday(): ?bool
+
+Check if date is a Federal Holiday and the day it is observed on. IE: If the holiday falls on Saturday, the holiday is observed the previous day (Friday). Or if a holiday falls on Sunday, the holiday is observed the next day (Monday). Note: Federal holidays are Monday - Friday Only. Holidays that are always on weekends are not considered bank holidays. 
+
+Returns boolean or null if the date is not a US Holiday a part of this extension.
+
 ### Linting
 
 ```
