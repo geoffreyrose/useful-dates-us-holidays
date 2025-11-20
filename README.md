@@ -16,7 +16,7 @@ This is the next evolution of [geoffreyrose/us-holidays](https://github.com/geof
 
 ### Requirements
 * PHP 8.4+
-* [Useful Dates](https://github.com/geoffreyrose/useful-dates).
+* [Useful Dates](https://github.com/geoffreyrose/useful-dates)
 
 ### Supported Holidays
 * April Fool's Day
@@ -66,10 +66,10 @@ Optionally, you can also include the "observed" holidays.
 
 **Observed Holidays** are when the Federal Holiday falls on a Saturday it is observed on the previous day (Friday) and when it falls on a Sunday it is observed on the next day (Monday).
 
-* New Year's Day (Observed)
 * Christmas Day (Observed)
 * Independence Day (Observed)
 * Juneteenth (Observed)
+* New Year's Day (Observed)
 * Veterans Day (Observed)
 
 ### Usage
