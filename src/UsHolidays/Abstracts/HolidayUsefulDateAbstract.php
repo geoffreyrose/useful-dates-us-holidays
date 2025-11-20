@@ -1,9 +1,9 @@
 <?php
 
-namespace UsHolidays\Abstracts;
+namespace UsefulDatesUsHolidays\Abstracts;
 
 use UsefulDates\Abstracts\UsefulDateAbstract;
-use UsHolidays\Interfaces\HolidayUsefulDateInterface;
+use UsefulDatesUsHolidays\Interfaces\HolidayUsefulDateInterface;
 
 abstract class HolidayUsefulDateAbstract extends UsefulDateAbstract implements HolidayUsefulDateInterface
 {

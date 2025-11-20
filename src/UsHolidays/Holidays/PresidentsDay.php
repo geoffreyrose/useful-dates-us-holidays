@@ -1,12 +1,12 @@
 <?php
 
-namespace UsHolidays\Holidays;
+namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use UsefulDates\Enums\RepeatFrequency;
 
-class PresidentsDay extends \UsHolidays\Abstracts\HolidayUsefulDateAbstract
+class PresidentsDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
 {
     public function __construct()
     {

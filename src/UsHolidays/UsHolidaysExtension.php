@@ -1,10 +1,10 @@
 <?php
 
-namespace UsHolidays;
+namespace UsefulDatesUsHolidays;
 
 use Carbon\CarbonInterface;
 use UsefulDates\Abstracts\UsefulDatesExtensionAbstract;
-use UsHolidays\Abstracts\HolidayUsefulDateAbstract;
+use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
 class UsHolidaysExtension extends UsefulDatesExtensionAbstract
 {
@@ -17,57 +17,57 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
     public static function usefulDates($options = null): array
     {
         $dates = [
-            \UsHolidays\Holidays\AprilFoolsDay::class,
-            \UsHolidays\Holidays\ArmedForcesDay::class,
-            \UsHolidays\Holidays\AshWednesday::class,
-            \UsHolidays\Holidays\BlackFriday::class,
-            \UsHolidays\Holidays\ChristmasDay::class,
-            \UsHolidays\Holidays\ChristmasEve::class,
-            \UsHolidays\Holidays\CincoDeMayo::class,
-            \UsHolidays\Holidays\ColumbusDay::class,
-            \UsHolidays\Holidays\CyberMonday::class,
-            \UsHolidays\Holidays\DaylightSavingEnd::class,
-            \UsHolidays\Holidays\DaylightSavingStart::class,
-            \UsHolidays\Holidays\EarthDay::class,
-            \UsHolidays\Holidays\Easter::class,
-            \UsHolidays\Holidays\FathersDay::class,
-            \UsHolidays\Holidays\FlagDay::class,
-            \UsHolidays\Holidays\GoodFriday::class,
-            \UsHolidays\Holidays\GroundhogDay::class,
-            \UsHolidays\Holidays\Halloween::class,
-            \UsHolidays\Holidays\Hanukkah::class,
-            \UsHolidays\Holidays\IndependenceDay::class,
-            \UsHolidays\Holidays\IndigenousPeoplesDay::class,
-            \UsHolidays\Holidays\Juneteenth::class,
-            \UsHolidays\Holidays\Kwanzaa::class,
-            \UsHolidays\Holidays\LaborDay::class,
-            \UsHolidays\Holidays\MemorialDay::class,
-            \UsHolidays\Holidays\MLKDay::class,
-            \UsHolidays\Holidays\MothersDay::class,
-            \UsHolidays\Holidays\NewYearsDay::class,
-            \UsHolidays\Holidays\NewYearsEve::class,
-            \UsHolidays\Holidays\OrthodoxEaster::class,
-            \UsHolidays\Holidays\PalmSunday::class,
-            \UsHolidays\Holidays\Passover::class,
-            \UsHolidays\Holidays\PatriotsDay::class,
-            \UsHolidays\Holidays\PearlHarborRemembrance::class,
-            \UsHolidays\Holidays\PresidentsDay::class,
-            \UsHolidays\Holidays\RoshHashanah::class,
-            \UsHolidays\Holidays\StPatricksDay::class,
-            \UsHolidays\Holidays\TaxDay::class,
-            \UsHolidays\Holidays\Thanksgiving::class,
-            \UsHolidays\Holidays\ValentinesDay::class,
-            \UsHolidays\Holidays\VeteransDay::class,
-            \UsHolidays\Holidays\YomKippur::class,
+            \UsefulDatesUsHolidays\Holidays\AprilFoolsDay::class,
+            \UsefulDatesUsHolidays\Holidays\ArmedForcesDay::class,
+            \UsefulDatesUsHolidays\Holidays\AshWednesday::class,
+            \UsefulDatesUsHolidays\Holidays\BlackFriday::class,
+            \UsefulDatesUsHolidays\Holidays\ChristmasDay::class,
+            \UsefulDatesUsHolidays\Holidays\ChristmasEve::class,
+            \UsefulDatesUsHolidays\Holidays\CincoDeMayo::class,
+            \UsefulDatesUsHolidays\Holidays\ColumbusDay::class,
+            \UsefulDatesUsHolidays\Holidays\CyberMonday::class,
+            \UsefulDatesUsHolidays\Holidays\DaylightSavingEnd::class,
+            \UsefulDatesUsHolidays\Holidays\DaylightSavingStart::class,
+            \UsefulDatesUsHolidays\Holidays\EarthDay::class,
+            \UsefulDatesUsHolidays\Holidays\Easter::class,
+            \UsefulDatesUsHolidays\Holidays\FathersDay::class,
+            \UsefulDatesUsHolidays\Holidays\FlagDay::class,
+            \UsefulDatesUsHolidays\Holidays\GoodFriday::class,
+            \UsefulDatesUsHolidays\Holidays\GroundhogDay::class,
+            \UsefulDatesUsHolidays\Holidays\Halloween::class,
+            \UsefulDatesUsHolidays\Holidays\Hanukkah::class,
+            \UsefulDatesUsHolidays\Holidays\IndependenceDay::class,
+            \UsefulDatesUsHolidays\Holidays\IndigenousPeoplesDay::class,
+            \UsefulDatesUsHolidays\Holidays\Juneteenth::class,
+            \UsefulDatesUsHolidays\Holidays\Kwanzaa::class,
+            \UsefulDatesUsHolidays\Holidays\LaborDay::class,
+            \UsefulDatesUsHolidays\Holidays\MemorialDay::class,
+            \UsefulDatesUsHolidays\Holidays\MLKDay::class,
+            \UsefulDatesUsHolidays\Holidays\MothersDay::class,
+            \UsefulDatesUsHolidays\Holidays\NewYearsDay::class,
+            \UsefulDatesUsHolidays\Holidays\NewYearsEve::class,
+            \UsefulDatesUsHolidays\Holidays\OrthodoxEaster::class,
+            \UsefulDatesUsHolidays\Holidays\PalmSunday::class,
+            \UsefulDatesUsHolidays\Holidays\Passover::class,
+            \UsefulDatesUsHolidays\Holidays\PatriotsDay::class,
+            \UsefulDatesUsHolidays\Holidays\PearlHarborRemembrance::class,
+            \UsefulDatesUsHolidays\Holidays\PresidentsDay::class,
+            \UsefulDatesUsHolidays\Holidays\RoshHashanah::class,
+            \UsefulDatesUsHolidays\Holidays\StPatricksDay::class,
+            \UsefulDatesUsHolidays\Holidays\TaxDay::class,
+            \UsefulDatesUsHolidays\Holidays\Thanksgiving::class,
+            \UsefulDatesUsHolidays\Holidays\ValentinesDay::class,
+            \UsefulDatesUsHolidays\Holidays\VeteransDay::class,
+            \UsefulDatesUsHolidays\Holidays\YomKippur::class,
         ];
 
         if ($options && is_array($options) && isset($options['include_observed']) && $options['include_observed'] === true) {
             $dates = array_merge($dates, [
-                \UsHolidays\Holidays\ChristmasDayObserved::class,
-                \UsHolidays\Holidays\IndependenceDayObserved::class,
-                \UsHolidays\Holidays\JuneteenthObserved::class,
-                \UsHolidays\Holidays\NewYearsDayObserved::class,
-                \UsHolidays\Holidays\VeteransDayObserved::class,
+                \UsefulDatesUsHolidays\Holidays\ChristmasDayObserved::class,
+                \UsefulDatesUsHolidays\Holidays\IndependenceDayObserved::class,
+                \UsefulDatesUsHolidays\Holidays\JuneteenthObserved::class,
+                \UsefulDatesUsHolidays\Holidays\NewYearsDayObserved::class,
+                \UsefulDatesUsHolidays\Holidays\VeteransDayObserved::class,
             ]);
         }
 

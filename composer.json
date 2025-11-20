@@ -5,11 +5,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "geoffreyrose/useful-dates": "dev-main"
+        "geoffreyrose/useful-dates": "dev-main",
+        "ext-calendar": "*"
     },
     "autoload": {
         "psr-4": {
-            "UsHolidays\\": "src/UsHolidays"
+            "UsefulDatesUsHolidays\\": "src/UsHolidays"
         }
     },
     "autoload-dev": {

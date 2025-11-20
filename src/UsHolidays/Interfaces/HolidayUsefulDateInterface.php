@@ -1,6 +1,6 @@
 <?php
 
-namespace UsHolidays\Interfaces;
+namespace UsefulDatesUsHolidays\Interfaces;
 
 interface HolidayUsefulDateInterface
 {

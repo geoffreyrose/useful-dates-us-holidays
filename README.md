@@ -89,7 +89,7 @@ use UsefulDates\UsefulDates;
 
 $usefulDates = new UsefulDates;
 $usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
-$usefulDates->addExtension(\UsHolidays\UsHolidaysExtension::class);
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
 
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
 ```
@@ -102,7 +102,7 @@ use UsefulDates\UsefulDates;
 
 $usefulDates = new UsefulDates;
 $usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
-$usefulDates->addExtension(\UsHolidays\UsHolidaysExtension::class, [
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class, [
     'include_observed' => true
 ]);
 
