@@ -12,7 +12,7 @@ class Thanksgiving extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
     {
         $this->name = 'Thanksgiving';
         $this->additional_search_names = ['THANKSGIVING'];
-        $this->start_date = Carbon::create(1621, 11, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1621-11-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -24,7 +24,7 @@ class Thanksgiving extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
 
     public function date(): Carbon
     {
-        $date = Carbon::create($this->currentDate->year, 11, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-11-01");
         if ($date->dayOfWeek !== CarbonInterface::THURSDAY) {
             $date->next(CarbonInterface::THURSDAY);
         }

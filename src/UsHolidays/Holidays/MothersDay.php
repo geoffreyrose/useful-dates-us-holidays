@@ -12,14 +12,14 @@ class MothersDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstr
     {
         $this->name = "Mother's Day";
         $this->additional_search_names = ["MOTHER'S DAY", 'MOTHERS DAY'];
-        $this->start_date = Carbon::create(1914, 5, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1914-05-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        $date = Carbon::create($this->currentDate->year, 5, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-05-01");
         if ($date->dayOfWeek !== CarbonInterface::SUNDAY) {
             $date->next(CarbonInterface::SUNDAY);
         }

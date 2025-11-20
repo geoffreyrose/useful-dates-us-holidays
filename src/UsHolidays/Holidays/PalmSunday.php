@@ -11,7 +11,7 @@ class PalmSunday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstr
     {
         $this->name = 'Palm Sunday';
         $this->additional_search_names = ['PALM SUNDAY'];
-        $this->start_date = Carbon::create(300, 3, 21, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '0300-03-21');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
@@ -19,9 +19,7 @@ class PalmSunday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstr
     public function date(): Carbon
     {
         // One week before Easter
-        $easter = (new Easter)
-            ->setCurrentDate($this->currentDate)
-            ->date();
+        $easter = new Easter()->setCurrentDate($this->currentDate)->date();
 
         return $easter->copy()->subWeek();
     }

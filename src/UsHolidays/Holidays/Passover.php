@@ -11,8 +11,7 @@ class Passover extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstrac
     {
         $this->name = 'Passover';
         $this->additional_search_names = ['PASSOVER'];
-        // Historical start year is negative; Carbon does not support BCE years, use a neutral placeholder
-        $this->start_date = Carbon::create(1, 1, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '0001-01-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }

@@ -11,7 +11,7 @@ class AshWednesday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
     {
         $this->name = 'Ash Wednesday';
         $this->additional_search_names = ['ASH WEDNESDAY'];
-        $this->start_date = Carbon::create(1200, 3, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1200-03-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
@@ -19,9 +19,7 @@ class AshWednesday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
     public function date(): Carbon
     {
         // 46 days before Easter
-        $easter = (new Easter)
-            ->setCurrentDate($this->currentDate)
-            ->date();
+        $easter = new Easter()->setCurrentDate($this->currentDate)->date();
 
         return $easter->copy()->subDays(46);
     }

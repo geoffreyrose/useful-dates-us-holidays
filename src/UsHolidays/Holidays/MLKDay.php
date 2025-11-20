@@ -12,7 +12,7 @@ class MLKDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
     {
         $this->name = 'Martin Luther King Jr. Day';
         $this->additional_search_names = ['MARTIN LUTHER KING JR. DAY', 'MARTIN LUTHER KING JR DAY', 'MLK DAY'];
-        $this->start_date = Carbon::create(1986, 1, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1986-01-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -25,7 +25,7 @@ class MLKDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
     public function date(): Carbon
     {
         // Third Monday in January
-        $date = Carbon::create($this->currentDate->year, 1, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-01-01");
         if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
             $date->next(CarbonInterface::MONDAY);
         }

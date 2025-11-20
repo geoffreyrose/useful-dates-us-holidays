@@ -15,13 +15,13 @@ class ValentinesDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAb
             'VALENTINES DAY',
             'VALENTINES',
         ];
-        $this->start_date = Carbon::create(496, 2, 14, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '0496-02-14');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        return Carbon::create($this->currentDate->year, 2, 14, 0, 0, 0);
+        return Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-02-14");
     }
 }

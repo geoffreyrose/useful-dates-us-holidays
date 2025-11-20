@@ -12,7 +12,7 @@ class PresidentsDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAb
     {
         $this->name = "Presidents' Day";
         $this->additional_search_names = ["PRESIDENTS' DAY", 'PRESIDENTS DAY'];
-        $this->start_date = Carbon::create(1971, 2, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1971-02-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -25,7 +25,7 @@ class PresidentsDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAb
     public function date(): Carbon
     {
         // Third Monday in February
-        $date = Carbon::create($this->currentDate->year, 2, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-02-01");
         if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
             $date->next(CarbonInterface::MONDAY);
         }

@@ -12,19 +12,14 @@ class BlackFriday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Black Friday';
         $this->additional_search_names = ['BLACK FRIDAY', 'DAY AFTER THANKSGIVING'];
-        $this->start_date = Carbon::create(1951, 11, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1951-11-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        // Compute Thanksgiving (4th Thursday in November) and then add one day
-        $date = Carbon::create($this->currentDate->year, 11, 1, 0, 0, 0);
-        if ($date->dayOfWeek !== CarbonInterface::THURSDAY) {
-            $date->next(CarbonInterface::THURSDAY);
-        }
-        $date->next(CarbonInterface::THURSDAY)->next(CarbonInterface::THURSDAY)->next(CarbonInterface::THURSDAY);
+        $date = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
 
         return $date->addDay();
     }

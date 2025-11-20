@@ -17,14 +17,14 @@ class DaylightSavingStart extends \UsefulDatesUsHolidays\Abstracts\HolidayUseful
             'DAYLIGHT SAVINGS (START)',
             'DAYLIGHT SAVINGS START',
         ];
-        $this->start_date = Carbon::create(1918, 3, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1918-03-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        $date = Carbon::create($this->currentDate->year, 3, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-03-01");
         if ($date->dayOfWeek !== CarbonInterface::SUNDAY) {
             $date->next(CarbonInterface::SUNDAY);
         }

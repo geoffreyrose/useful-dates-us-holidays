@@ -12,7 +12,7 @@ class JuneteenthObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulD
     {
         $this->name = 'Juneteenth  (Observed)';
         $this->additional_search_names = ['JUNETEENTH'];
-        $this->start_date = Carbon::create(1866, 6, 19, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1866-06-19');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 

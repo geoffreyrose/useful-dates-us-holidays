@@ -12,7 +12,7 @@ class ColumbusDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Columbus Day';
         $this->additional_search_names = ['COLUMBUS DAY'];
-        $this->start_date = Carbon::create(1792, 10, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '1792-10-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -25,7 +25,7 @@ class ColumbusDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     public function date(): Carbon
     {
         // Second Monday in October
-        $date = Carbon::create($this->currentDate->year, 10, 1, 0, 0, 0);
+        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-10-01");
         if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
             $date->next(CarbonInterface::MONDAY);
         }

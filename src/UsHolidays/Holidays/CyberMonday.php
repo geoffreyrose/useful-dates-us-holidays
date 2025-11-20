@@ -11,7 +11,7 @@ class CyberMonday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Cyber Monday';
         $this->additional_search_names = ['CYBER MONDAY'];
-        $this->start_date = Carbon::create(2005, 11, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '2005-11-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
@@ -19,9 +19,7 @@ class CyberMonday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     public function date(): Carbon
     {
         // Cyber Monday is the Monday following Thanksgiving (4th Thursday in November) => Thanksgiving + 4 days
-        $thanksgiving = (new Thanksgiving)
-            ->setCurrentDate($this->currentDate)
-            ->date();
+        $thanksgiving = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
 
         return $thanksgiving->copy()->addDays(4);
     }

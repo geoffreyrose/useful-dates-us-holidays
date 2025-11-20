@@ -12,7 +12,7 @@ class NewYearsDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUseful
     {
         $this->name = "New Year's Day (Observed)";
         $this->additional_search_names = ["NEW YEAR'S DAY", 'NEW YEARS DAY', 'NEW YEARS'];
-        $this->start_date = Carbon::create(1, 1, 1, 0, 0, 0);
+        $this->start_date = Carbon::createFromFormat('Y-m-d', '0001-01-01');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
