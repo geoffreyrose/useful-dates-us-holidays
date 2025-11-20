@@ -62,6 +62,15 @@ This is the next evolution of [geoffreyrose/us-holidays](https://github.com/geof
 * Veterans Day
 * Yom Kippur
 
+Optionally, you can also include the "observed" holidays.
+
+**Observed Holidays** are when the Federal Holiday falls on a Saturday it is observed on the previous day (Friday) and when it falls on a Sunday it is observed on the next day (Monday).
+
+* New Year's Day (Observed)
+* Christmas Day (Observed)
+* Independence Day (Observed)
+* Juneteenth (Observed)
+* Veterans Day (Observed)
 
 ### Usage
 
@@ -81,6 +90,21 @@ use UsefulDates\UsefulDates;
 $usefulDates = new UsefulDates;
 $usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
 $usefulDates->addExtension(\UsHolidays\UsHolidaysExtension::class);
+
+$myDates = $usefulDates->getUsefulDatesByYear(2026);
+```
+
+To include observed holidays, use the `include_observed` option. 
+```php
+use UsefulDates\UsefulDates;
+
+...
+
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
+$usefulDates->addExtension(\UsHolidays\UsHolidaysExtension::class, [
+    'include_observed' => true
+]);
 
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
 ```

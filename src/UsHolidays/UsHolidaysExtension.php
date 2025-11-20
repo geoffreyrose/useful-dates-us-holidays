@@ -14,9 +14,9 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
 
     public static bool $hasMethods = true;
 
-    public static function usefulDates(): array
+    public static function usefulDates($options = null): array
     {
-        return [
+        $dates = [
             \UsHolidays\Holidays\AprilFoolsDay::class,
             \UsHolidays\Holidays\ArmedForcesDay::class,
             \UsHolidays\Holidays\AshWednesday::class,
@@ -60,6 +60,18 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             \UsHolidays\Holidays\VeteransDay::class,
             \UsHolidays\Holidays\YomKippur::class,
         ];
+
+        if ($options && is_array($options) && isset($options['include_observed']) && $options['include_observed'] === true) {
+            $dates = array_merge($dates, [
+                \UsHolidays\Holidays\ChristmasDayObserved::class,
+                \UsHolidays\Holidays\IndependenceDayObserved::class,
+                \UsHolidays\Holidays\JuneteenthObserved::class,
+                \UsHolidays\Holidays\NewYearsDayObserved::class,
+                \UsHolidays\Holidays\VeteransDayObserved::class,
+            ]);
+        }
+
+        return $dates;
     }
 
     public function methods(): array
@@ -74,12 +86,9 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
     public function isBankHoliday(): ?bool
     {
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
-        $isUsHoliday = false;
         $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
             if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
-                $isUsHoliday = true;
-
                 if (in_array($dayOfWeek, [
                     CarbonInterface::MONDAY,
                     CarbonInterface::TUESDAY,
@@ -103,18 +112,15 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             }
         }
 
-        return $isUsHoliday ? false : null;
+        return null;
     }
 
     public function isFederalHoliday(): ?bool
     {
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
-        $isUsHoliday = false;
         $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
             if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
-                $isUsHoliday = true;
-
                 if (in_array($dayOfWeek, [
                     CarbonInterface::MONDAY,
                     CarbonInterface::TUESDAY,
@@ -149,6 +155,6 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             }
         }
 
-        return $isUsHoliday ? false : null;
+        return null;
     }
 }
