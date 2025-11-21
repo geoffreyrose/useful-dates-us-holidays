@@ -64,7 +64,7 @@ This is the next evolution of [geoffreyrose/us-holidays](https://github.com/geof
 
 Optionally, you can also include the "observed" holidays.
 
-**Observed Holidays** are when the Federal Holiday falls on a Saturday it is observed on the previous day (Friday) and when it falls on a Sunday it is observed on the next day (Monday).
+**Observed Holidays** are when the Federal Holiday falls on a Saturday it is observed on the previous day (Friday) or when it falls on a Sunday it is observed on the next day (Monday).
 
 * Christmas Day (Observed)
 * Independence Day (Observed)
