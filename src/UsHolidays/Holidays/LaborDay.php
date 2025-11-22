@@ -12,7 +12,7 @@ class LaborDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstrac
     {
         $this->name = 'Labor Day';
         $this->additional_search_names = ['LABOR DAY'];
-        $this->start_date = Carbon::createFromFormat('Y-m-d', '1882-09-01');
+        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1882-09-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -24,7 +24,7 @@ class LaborDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstrac
 
     public function date(): Carbon
     {
-        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-09-01");
+        $date = Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-09-01 00:00:00");
         if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
             $date->next(CarbonInterface::MONDAY);
         }

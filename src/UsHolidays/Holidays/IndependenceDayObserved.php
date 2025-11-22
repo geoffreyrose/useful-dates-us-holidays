@@ -12,7 +12,7 @@ class IndependenceDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUs
     {
         $this->name = 'Independence Day (Observed)';
         $this->additional_search_names = ['INDEPENDENCE DAY', 'FORTH OF JULY', '4TH OF JULY'];
-        $this->start_date = Carbon::createFromFormat('Y-m-d', '1777-07-04');
+        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1777-07-04 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 

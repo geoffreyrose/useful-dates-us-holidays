@@ -11,7 +11,7 @@ class ChristmasDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
     {
         $this->name = 'Christmas Day';
         $this->additional_search_names = ['CHRISTMAS DAY', 'CHRISTMAS'];
-        $this->start_date = Carbon::createFromFormat('Y-m-d', '0336-12-25');
+        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '0336-12-25 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -23,6 +23,6 @@ class ChristmasDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-12-25");
+        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-12-25 00:00:00");
     }
 }

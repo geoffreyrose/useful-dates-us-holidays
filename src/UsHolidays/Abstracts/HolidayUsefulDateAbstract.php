@@ -17,22 +17,22 @@ abstract class HolidayUsefulDateAbstract extends UsefulDateAbstract implements H
         get => $this->is_federal_holiday;
     }
 
-    public ?int $bank_holiday_start_year {
+    public ?int $bank_holiday_start_year = null {
         set => $this->bank_holiday_start_year = $value;
         get => $this->bank_holiday_start_year;
     }
 
-    public ?int $bank_holiday_end_year {
+    public ?int $bank_holiday_end_year = null {
         set => $this->bank_holiday_end_year = $value;
         get => $this->bank_holiday_end_year;
     }
 
-    public ?int $federal_holiday_start_year {
+    public ?int $federal_holiday_start_year = null {
         set => $this->federal_holiday_start_year = $value;
         get => $this->federal_holiday_start_year;
     }
 
-    public ?int $federal_holiday_end_year {
+    public ?int $federal_holiday_end_year  = null{
         set => $this->federal_holiday_end_year = $value;
         get => $this->federal_holiday_end_year;
     }

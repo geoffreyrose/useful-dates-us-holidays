@@ -12,7 +12,7 @@ class MemorialDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Memorial Day';
         $this->additional_search_names = ['MEMORIAL DAY'];
-        $this->start_date = Carbon::createFromFormat('Y-m-d', '1868-05-01');
+        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1868-05-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -25,7 +25,7 @@ class MemorialDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     public function date(): Carbon
     {
         // Last Monday in May
-        $date = Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-05-01");
+        $date = Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-05-01 00:00:00");
         for ($i = 0; $i < 7; $i++) {
             if ($date->month === 5) {
                 $date->next(CarbonInterface::MONDAY);

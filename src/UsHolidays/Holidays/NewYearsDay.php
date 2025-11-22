@@ -11,7 +11,7 @@ class NewYearsDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = "New Year's Day";
         $this->additional_search_names = ["NEW YEAR'S DAY", 'NEW YEARS DAY', 'NEW YEARS'];
-        $this->start_date = Carbon::createFromFormat('Y-m-d', '0001-01-01');
+        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '0001-01-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -23,6 +23,6 @@ class NewYearsDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat('Y-m-d', "{$this->currentDate->year}-01-01");
+        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-01-01 00:00:00");
     }
 }
