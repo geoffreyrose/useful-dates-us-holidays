@@ -12,14 +12,14 @@ class ArmedForcesDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateA
     {
         $this->name = 'Armed Forces Day';
         $this->additional_search_names = ['ARMED FORCES DAY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1949-05-01 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1949-05-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        $date = Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-05-01 00:00:00");
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-05-01 00:00:00");
         if ($date->dayOfWeek !== CarbonInterface::SATURDAY) {
             $date->next(CarbonInterface::SATURDAY);
         }

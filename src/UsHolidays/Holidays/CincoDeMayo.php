@@ -11,13 +11,13 @@ class CincoDeMayo extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Cinco de Mayo';
         $this->additional_search_names = ['CINCO DE MAYO'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1862-05-05 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1862-05-05 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-05-05 00:00:00");
+        return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-05-05 00:00:00");
     }
 }

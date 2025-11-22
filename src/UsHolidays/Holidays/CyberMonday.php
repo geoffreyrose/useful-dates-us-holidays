@@ -11,7 +11,7 @@ class CyberMonday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbst
     {
         $this->name = 'Cyber Monday';
         $this->additional_search_names = ['CYBER MONDAY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '2005-11-01 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '2005-11-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }

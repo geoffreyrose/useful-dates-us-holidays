@@ -12,7 +12,7 @@ class VeteransDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUseful
     {
         $this->name = 'Veterans Day (Observed)';
         $this->additional_search_names = ['VETERANS DAY', 'ARMISTICE DAY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1919-11-11 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1919-11-11 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 

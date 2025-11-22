@@ -32,7 +32,7 @@ abstract class HolidayUsefulDateAbstract extends UsefulDateAbstract implements H
         get => $this->federal_holiday_start_year;
     }
 
-    public ?int $federal_holiday_end_year  = null{
+    public ?int $federal_holiday_end_year = null {
         set => $this->federal_holiday_end_year = $value;
         get => $this->federal_holiday_end_year;
     }

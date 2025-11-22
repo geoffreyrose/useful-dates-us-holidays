@@ -3,7 +3,6 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
 use UsefulDates\Enums\RepeatFrequency;
 
 class IndigenousPeoplesDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
@@ -12,7 +11,7 @@ class IndigenousPeoplesDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefu
     {
         $this->name = "Indigenous Peoples' Day";
         $this->additional_search_names = ["INDIGENOUS PEOPLES' DAY", 'INDIGENOUS PEOPLES DAY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1792-10-01 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1792-10-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 

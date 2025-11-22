@@ -12,7 +12,7 @@ class ChristmasDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefu
     {
         $this->name = 'Christmas Day (Observed)';
         $this->additional_search_names = ['CHRISTMAS DAY', 'CHRISTMAS'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '0336-12-25 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '0336-12-25 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 

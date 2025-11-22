@@ -16,13 +16,13 @@ class StPatricksDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAb
             'ST. PATRICKS DAY',
             'SAINT PATRICKS DAY',
         ];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1631-03-17 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1631-03-17 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-03-17 00:00:00");
+        return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-03-17 00:00:00");
     }
 }

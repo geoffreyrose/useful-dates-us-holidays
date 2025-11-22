@@ -11,7 +11,7 @@ class AshWednesday extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbs
     {
         $this->name = 'Ash Wednesday';
         $this->additional_search_names = ['ASH WEDNESDAY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1200-03-01 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1200-03-01 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }

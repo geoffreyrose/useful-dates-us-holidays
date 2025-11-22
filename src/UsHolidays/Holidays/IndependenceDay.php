@@ -11,7 +11,7 @@ class IndependenceDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDate
     {
         $this->name = 'Independence Day';
         $this->additional_search_names = ['INDEPENDENCE DAY', 'FORTH OF JULY', '4TH OF JULY'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1777-07-04 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1777-07-04 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -23,6 +23,6 @@ class IndependenceDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDate
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-07-04 00:00:00");
+        return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-07-04 00:00:00");
     }
 }

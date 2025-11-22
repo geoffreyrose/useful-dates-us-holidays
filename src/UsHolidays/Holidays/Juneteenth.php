@@ -11,7 +11,7 @@ class Juneteenth extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstr
     {
         $this->name = 'Juneteenth';
         $this->additional_search_names = ['JUNETEENTH'];
-        $this->start_date = Carbon::createFromFormat( 'Y-m-d H:i:s', '1866-06-19 00:00:00');
+        $this->start_date = Carbon::createFromFormat('Y-m-d H:i:s', '1866-06-19 00:00:00');
         $this->is_repeated = true;
         $this->repeat_frequency = RepeatFrequency::YEARLY;
 
@@ -23,6 +23,6 @@ class Juneteenth extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstr
 
     public function date(): Carbon
     {
-        return Carbon::createFromFormat( 'Y-m-d H:i:s', "{$this->currentDate->year}-06-19 00:00:00");
+        return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-06-19 00:00:00");
     }
 }
