@@ -31,11 +31,13 @@ class NewYearsDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUseful
         }
 
         if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
-                $date->next(CarbonInterface::MONDAY);
-                return $date;
+            $date->next(CarbonInterface::MONDAY);
+
+            return $date;
         } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
-                $date->previous(CarbonInterface::FRIDAY);
-                return $date;
+            $date->previous(CarbonInterface::FRIDAY);
+
+            return $date;
         }
 
         return null;

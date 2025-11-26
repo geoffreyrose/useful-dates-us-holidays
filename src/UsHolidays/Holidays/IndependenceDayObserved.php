@@ -27,13 +27,15 @@ class IndependenceDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUs
         $date = new IndependenceDay()->setCurrentDate($this->currentDate)->date();
 
         if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
-            if($this->currentDate->copy()->subDay()->isBirthday($date)) {
+            if ($this->currentDate->copy()->subDay()->isBirthday($date)) {
                 $date->next(CarbonInterface::MONDAY);
+
                 return $date;
             }
         } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
-                $date->previous(CarbonInterface::FRIDAY);
-                return $date;
+            $date->previous(CarbonInterface::FRIDAY);
+
+            return $date;
         }
 
         return null;
