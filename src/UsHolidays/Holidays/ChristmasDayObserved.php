@@ -24,19 +24,18 @@ class ChristmasDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefu
 
     public function date(): ?Carbon
     {
-        $dayOfWeek = $this->currentDate->dayOfWeek;
-
         $date = new ChristmasDay()->setCurrentDate($this->currentDate)->date();
 
-        if ($dayOfWeek === CarbonInterface::MONDAY && $date->dayOfWeek === CarbonInterface::SUNDAY) {
-            $date->next(CarbonInterface::MONDAY);
-
-            return $date;
-        } elseif ($dayOfWeek === CarbonInterface::FRIDAY && $date->dayOfWeek === CarbonInterface::SATURDAY) {
+        if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
+            if($this->currentDate->copy()->subDay()->isBirthday($date)) {
+                $date->next(CarbonInterface::MONDAY);
+                return $date;
+            }
+        } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
             $date->previous(CarbonInterface::FRIDAY);
-
             return $date;
         }
+
 
         return null;
     }

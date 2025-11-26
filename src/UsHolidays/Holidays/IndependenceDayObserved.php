@@ -24,18 +24,16 @@ class IndependenceDayObserved extends \UsefulDatesUsHolidays\Abstracts\HolidayUs
 
     public function date(): ?Carbon
     {
-        $dayOfWeek = $this->currentDate->dayOfWeek;
-
         $date = new IndependenceDay()->setCurrentDate($this->currentDate)->date();
 
-        if ($dayOfWeek === CarbonInterface::MONDAY && $date->dayOfWeek === CarbonInterface::SUNDAY) {
-            $date->next(CarbonInterface::MONDAY);
-
-            return $date;
-        } elseif ($dayOfWeek === CarbonInterface::FRIDAY && $date->dayOfWeek === CarbonInterface::SATURDAY) {
-            $date->previous(CarbonInterface::FRIDAY);
-
-            return $date;
+        if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
+            if($this->currentDate->copy()->subDay()->isBirthday($date)) {
+                $date->next(CarbonInterface::MONDAY);
+                return $date;
+            }
+        } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
+                $date->previous(CarbonInterface::FRIDAY);
+                return $date;
         }
 
         return null;
