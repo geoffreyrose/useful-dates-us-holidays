@@ -1,6 +1,9 @@
 name: Fix Code Style
 
 on:
+  push: # Runs on push events
+    branches:
+      - main
   pull_request_target:
     types: [opened, synchronize, reopened]  # Runs once per PR update
 jobs:
