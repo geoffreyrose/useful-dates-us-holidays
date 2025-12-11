@@ -91,6 +91,10 @@ $usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
 $usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
 
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
+
+foreach ($myDates as $myDate) {
+   echo $myDate->name . ' -- ' . $myDate->usefulDate()->format('F n, Y') . ' -- Days Away: ' . $myDate->daysAway();
+}
 ```
 
 To include observed holidays, use the `include_observed` option.
