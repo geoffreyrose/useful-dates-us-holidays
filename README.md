@@ -7,8 +7,6 @@
 
 # US Holidays Extension For Useful Dates
 
-If you need US Holidays for a production project, please use my [geoffreyrose/us-holidays](https://github.com/geoffreyrose/us-holidays) package instead.
-
 Adds 42 US holidays to use with [Useful Dates](https://github.com/geoffreyrose/useful-dates).
 
 This is the next evolution of [geoffreyrose/us-holidays](https://github.com/geoffreyrose/us-holidays) but for my date package Useful Dates.
