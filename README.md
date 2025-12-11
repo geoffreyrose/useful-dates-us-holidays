@@ -87,10 +87,15 @@ use UsefulDates\UsefulDates;
 ...
 
 $usefulDates = new UsefulDates;
-$usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::create(2000, 4, 1))
 $usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
 
-$myDates = $usefulDates->getUsefulDatesByYear(2026);
+$myDates = $usefulDates->getUsefulDatesInDays(100);
+
+// Or
+// $myDates = $usefulDates->getUsefulDatesByYear() // Uses current year set in UsefulDates with setDate();
+// $myDates = $usefulDates->getUsefulDatesByYear(2026);
+// $myDates = $usefulDates->getUsefulDatesInYears(2);
 
 foreach ($myDates as $myDate) {
    echo $myDate->name . ' -- ' . $myDate->usefulDate()->format('F n, Y') . ' -- Days Away: ' . $myDate->daysAway();
@@ -111,6 +116,7 @@ $usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension
 ]);
 
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
+
 ```
 
 
