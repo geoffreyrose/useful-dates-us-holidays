@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "geoffreyrose/useful-dates": "dev-main",
+        "geoffreyrose/useful-dates": "^1.0",
         "ext-calendar": "*"
     },
     "autoload": {
