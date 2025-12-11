@@ -95,7 +95,8 @@ $usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension
 $myDates = $usefulDates->getUsefulDatesByYear(2026);
 ```
 
-To include observed holidays, use the `include_observed` option. 
+To include observed holidays, use the `include_observed` option.
+
 ```php
 use UsefulDates\UsefulDates;
 
@@ -111,19 +112,115 @@ $myDates = $usefulDates->getUsefulDatesByYear(2026);
 ```
 
 
-### Methods
+### Additional Methods
 
-#### isBankHoliday(): ?bool
+This extension adds two helper methods to check if a date is a bank or federal holiday:
 
-Check if date is a Bank Holiday and the day it is observed on. IE: if the holiday falls on Sunday, the holiday is observed the next day (Monday). Note: Bank holidays are Monday - Friday Only. Holidays that are always on weekends are not considered bank holidays. Also holidays that are Bank Holidays but fall on Saturday are NOT observed on the previous Friday. 
+#### isBankHoliday(): bool
 
-Returns boolean or null if the date is not a US Holiday a part of this extension.
+Check if the current date is a Bank Holiday and the day it is observed on.
 
-#### isFederalHoliday(): ?bool
+**Bank Holiday Rules:**
+- If the holiday falls on Sunday, it is observed the next day (Monday)
+- Bank holidays that fall on Saturday are NOT observed on the previous Friday
+- Only applies to holidays that can fall Monday - Friday
+- Holidays that always fall on weekends are not considered bank holidays
 
-Check if date is a Federal Holiday and the day it is observed on. IE: If the holiday falls on Saturday, the holiday is observed the previous day (Friday). Or if a holiday falls on Sunday, the holiday is observed the next day (Monday). Note: Federal holidays are Monday - Friday Only. Holidays that are always on weekends are not considered bank holidays. 
+**Returns:**
+- `true` if the date is a bank holiday
+- `false` if the date is not a bank holiday
 
-Returns boolean or null if the date is not a US Holiday a part of this extension.
+**Example:**
+
+```php
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::parse('2026-01-01')); // New Year's Day (Thursday)
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
+
+if ($usefulDates->isBankHoliday()) {
+    echo "Banks are closed today!";
+}
+```
+
+#### isFederalHoliday(): bool
+
+Check if the current date is a Federal Holiday and the day it is observed on.
+
+**Federal Holiday Rules:**
+- If the holiday falls on Saturday, it is observed the previous day (Friday)
+- If the holiday falls on Sunday, it is observed the next day (Monday)
+- Only applies Monday - Friday
+- Holidays that always fall on weekends are not considered federal holidays
+
+**Returns:**
+- `true` if the date is a federal holiday
+- `false` if the date is not a federal holiday
+
+**Example:**
+
+```php
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::parse('2026-07-03')); // July 4th observed (Friday)
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
+
+if ($usefulDates->isFederalHoliday()) {
+    echo "Federal offices are closed today!";
+}
+```
+
+### Getting Holiday Information
+
+You can retrieve holiday information for specific dates:
+
+```php
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::parse('2026-12-25'));
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
+
+$dates = $usefulDates->getUsefulDate();
+foreach ($dates as $date) {
+    echo $date->name; // "Christmas Day"
+}
+```
+
+Or get all holidays for a year:
+
+```php
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::now());
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
+
+$holidays2026 = $usefulDates->getUsefulDatesByYear(2026);
+```
+
+### Holiday Properties
+
+Each holiday object includes the following properties:
+
+- `name` - The official name of the holiday
+- `is_bank_holiday` - Boolean indicating if it's a bank holiday
+- `is_federal_holiday` - Boolean indicating if it's a federal holiday
+- `bank_holiday_start_year` - The year the holiday became a bank holiday (if applicable)
+- `bank_holiday_end_year` - The year the holiday ceased being a bank holiday (if applicable)
+- `federal_holiday_start_year` - The year the holiday became a federal holiday (if applicable)
+- `federal_holiday_end_year` - The year the holiday ceased being a federal holiday (if applicable)
+
+**Example:**
+
+```php
+$usefulDates = new UsefulDates;
+$usefulDates = $usefulDates->setDate(\Carbon\Carbon::parse('2026-01-19'));
+$usefulDates->addExtension(\UsefulDatesUsHolidays\UsefulDatesUsHolidaysExtension::class);
+
+$dates = $usefulDates->getUsefulDate();
+foreach ($dates as $date) {
+    echo $date->name; // "Martin Luther King Jr. Day"
+    echo $date->is_federal_holiday; // true
+    echo $date->federal_holiday_start_year; // 1986
+}
+```
+
+### Development
 
 ### Linting
 

@@ -6,7 +6,7 @@ use Carbon\CarbonInterface;
 use UsefulDates\Abstracts\UsefulDatesExtensionAbstract;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
-class UsHolidaysExtension extends UsefulDatesExtensionAbstract
+class UsefulDatesUsHolidaysExtension extends UsefulDatesExtensionAbstract
 {
     public static string $name = 'US Holidays';
 
@@ -83,7 +83,7 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
         ];
     }
 
-    public function isBankHoliday(): ?bool
+    public function isBankHoliday(): bool
     {
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
         $usefulDates = $this->usefulDates->getUsefulDate();
@@ -112,10 +112,10 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             }
         }
 
-        return null;
+        return false;
     }
 
-    public function isFederalHoliday(): ?bool
+    public function isFederalHoliday(): bool
     {
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
         $usefulDates = $this->usefulDates->getUsefulDate();
@@ -155,6 +155,6 @@ class UsHolidaysExtension extends UsefulDatesExtensionAbstract
             }
         }
 
-        return null;
+        return false;
     }
 }
