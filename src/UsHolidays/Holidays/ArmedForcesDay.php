@@ -5,8 +5,9 @@ namespace UsefulDatesUsHolidays\Holidays;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use UsefulDates\Enums\RepeatFrequency;
+use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
-class ArmedForcesDay extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
+class ArmedForcesDay extends HolidayUsefulDateAbstract
 {
     public function __construct()
     {

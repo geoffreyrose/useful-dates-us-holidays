@@ -4,8 +4,9 @@ namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
 use UsefulDates\Enums\RepeatFrequency;
+use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
-class Halloween extends \UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract
+class Halloween extends HolidayUsefulDateAbstract
 {
     public function __construct()
     {

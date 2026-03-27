@@ -1,61 +1,64 @@
 <?php
 
+use Carbon\Carbon;
+use UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
+
 it('is the date in 2016', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2016, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2016, 5, 1));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2016, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2016, 5, 1));
 });
 
 it('is the date in 2017', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2017, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2017, 4, 16));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2017, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2017, 4, 16));
 });
 
 it('is the date in 2018', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2018, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2018, 4, 8));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2018, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2018, 4, 8));
 });
 
 it('is the date in 2019', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2019, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2019, 4, 28));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2019, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2019, 4, 28));
 });
 
 it('is the date in 2020', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2020, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2020, 4, 19));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2020, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2020, 4, 19));
 });
 
 it('is the date in 2021', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2021, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2021, 5, 2));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2021, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2021, 5, 2));
 });
 
 it('is the date in 2022', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2022, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2022, 4, 24));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2022, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2022, 4, 24));
 });
 
 it('is the date in 2023', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2023, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2023, 4, 16));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2023, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2023, 4, 16));
 });
 
 it('is the date in 2024', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2024, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2024, 5, 5));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2024, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2024, 5, 5));
 });
 
 it('is the date in 2025', function (): void {
-    $holiday = new \UsefulDatesUsHolidays\Holidays\OrthodoxEaster;
-    $holiday->setCurrentDate(\Carbon\Carbon::create(2025, 1, 1));
-    expect($holiday->date())->toEqual(\Carbon\Carbon::create(2025, 4, 20));
+    $holiday = new OrthodoxEaster;
+    $holiday->setCurrentDate(Carbon::create(2025, 1, 1));
+    expect($holiday->date())->toEqual(Carbon::create(2025, 4, 20));
 });
