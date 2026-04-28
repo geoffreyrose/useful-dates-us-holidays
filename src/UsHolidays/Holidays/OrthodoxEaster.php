@@ -17,7 +17,7 @@ class OrthodoxEaster extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $year = $this->currentDate->year;
         $a = $year % 4;
@@ -30,6 +30,10 @@ class OrthodoxEaster extends HolidayUsefulDateAbstract
 
         // Convert to timestamp and add 13 days (Julian to Gregorian diff)
         $dt = mktime(0, 0, 0, $month, $day + 13, $year);
+
+        if ($dt === false) {
+            return null;
+        }
 
         return Carbon::createFromTimestamp($dt)->startOfDay();
     }

@@ -17,10 +17,15 @@ class YomKippur extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $greg = jdtogregorian(jewishtojd(1, 10, 3761 + $this->currentDate->year));
 
-        return Carbon::createFromFormat('m/d/Y', $greg)->startOfDay();
+        $date = Carbon::createFromFormat('m/d/Y', $greg);
+        if (is_null($date)) {
+            return null;
+        }
+
+        return $date->startOfDay();
     }
 }

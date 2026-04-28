@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -23,13 +23,16 @@ class MemorialDay extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1971;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Last Monday in May
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-05-01 00:00:00");
+        if (is_null($date)) {
+            return null;
+        }
         for ($i = 0; $i < 7; $i++) {
             if ($date->month === 5) {
-                $date->next(CarbonInterface::MONDAY);
+                $date->next(UnitValue::MONDAY);
             } else {
                 $date->subDays(7);
                 break;

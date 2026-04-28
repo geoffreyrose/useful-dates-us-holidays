@@ -17,7 +17,7 @@ class ChristmasEve extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-12-24 00:00:00");
     }

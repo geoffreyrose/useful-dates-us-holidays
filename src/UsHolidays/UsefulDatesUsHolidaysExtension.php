@@ -2,7 +2,7 @@
 
 namespace UsefulDatesUsHolidays;
 
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Abstracts\UsefulDatesExtensionAbstract;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 use UsefulDatesUsHolidays\Holidays\AprilFoolsDay;
@@ -61,7 +61,7 @@ class UsefulDatesUsHolidaysExtension extends UsefulDatesExtensionAbstract
 
     public static bool $hasMethods = true;
 
-    public static function usefulDates($options = null): array
+    public static function usefulDates(mixed $options = null): array
     {
         $dates = [
             AprilFoolsDay::class,
@@ -135,24 +135,24 @@ class UsefulDatesUsHolidaysExtension extends UsefulDatesExtensionAbstract
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
         $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
-            if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+            if ($usefulDate instanceof HolidayUsefulDateAbstract) {
                 if (in_array($dayOfWeek, [
-                    CarbonInterface::MONDAY,
-                    CarbonInterface::TUESDAY,
-                    CarbonInterface::WEDNESDAY,
-                    CarbonInterface::THURSDAY,
-                    CarbonInterface::FRIDAY,
-                ]) && $usefulDate?->is_bank_holiday) {
+                    UnitValue::MONDAY,
+                    UnitValue::TUESDAY,
+                    UnitValue::WEDNESDAY,
+                    UnitValue::THURSDAY,
+                    UnitValue::FRIDAY,
+                ]) && $usefulDate->is_bank_holiday) {
                     return true;
                 }
             }
         }
 
-        if ($dayOfWeek === CarbonInterface::MONDAY) {
-            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay(1));
+        if ($dayOfWeek === UnitValue::MONDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay());
             foreach ($usefulDates as $usefulDate) {
-                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
-                    if ($usefulDate?->is_bank_holiday) {
+                if ($usefulDate instanceof HolidayUsefulDateAbstract) {
+                    if ($usefulDate->is_bank_holiday) {
                         return true;
                     }
                 }
@@ -167,35 +167,35 @@ class UsefulDatesUsHolidaysExtension extends UsefulDatesExtensionAbstract
         $dayOfWeek = $this->usefulDates->date->dayOfWeek;
         $usefulDates = $this->usefulDates->getUsefulDate();
         foreach ($usefulDates as $usefulDate) {
-            if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
+            if ($usefulDate instanceof HolidayUsefulDateAbstract) {
                 if (in_array($dayOfWeek, [
-                    CarbonInterface::MONDAY,
-                    CarbonInterface::TUESDAY,
-                    CarbonInterface::WEDNESDAY,
-                    CarbonInterface::THURSDAY,
-                    CarbonInterface::FRIDAY,
-                ]) && $usefulDate?->is_federal_holiday) {
+                    UnitValue::MONDAY,
+                    UnitValue::TUESDAY,
+                    UnitValue::WEDNESDAY,
+                    UnitValue::THURSDAY,
+                    UnitValue::FRIDAY,
+                ]) && $usefulDate->is_federal_holiday) {
                     return true;
                 }
             }
         }
 
-        if ($dayOfWeek === CarbonInterface::MONDAY) {
-            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay(1));
+        if ($dayOfWeek === UnitValue::MONDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->subDay());
             foreach ($usefulDates as $usefulDate) {
-                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
-                    if ($usefulDate?->is_federal_holiday) {
+                if ($usefulDate instanceof HolidayUsefulDateAbstract) {
+                    if ($usefulDate->is_federal_holiday) {
                         return true;
                     }
                 }
             }
         }
 
-        if ($dayOfWeek === CarbonInterface::FRIDAY) {
-            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->addDay(1));
+        if ($dayOfWeek === UnitValue::FRIDAY) {
+            $usefulDates = $this->usefulDates->getUsefulDate($this->usefulDates->date->copy()->addDay());
             foreach ($usefulDates as $usefulDate) {
-                if (get_parent_class($usefulDate) === HolidayUsefulDateAbstract::class) {
-                    if ($usefulDate?->is_federal_holiday) {
+                if ($usefulDate instanceof HolidayUsefulDateAbstract) {
+                    if ($usefulDate->is_federal_holiday) {
                         return true;
                     }
                 }

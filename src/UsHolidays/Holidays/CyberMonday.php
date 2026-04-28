@@ -17,10 +17,14 @@ class CyberMonday extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Cyber Monday is the Monday following Thanksgiving (4th Thursday in November) => Thanksgiving + 4 days
         $thanksgiving = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
+
+        if (is_null($thanksgiving)) {
+            return null;
+        }
 
         return $thanksgiving->copy()->addDays(4);
     }

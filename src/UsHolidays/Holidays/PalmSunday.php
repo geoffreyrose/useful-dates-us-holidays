@@ -17,10 +17,14 @@ class PalmSunday extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // One week before Easter
         $easter = new Easter()->setCurrentDate($this->currentDate)->date();
+
+        if (is_null($easter)) {
+            return null;
+        }
 
         return $easter->copy()->subWeek();
     }

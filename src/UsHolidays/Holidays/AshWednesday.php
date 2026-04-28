@@ -17,10 +17,14 @@ class AshWednesday extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // 46 days before Easter
         $easter = new Easter()->setCurrentDate($this->currentDate)->date();
+
+        if (is_null($easter)) {
+            return null;
+        }
 
         return $easter->copy()->subDays(46);
     }

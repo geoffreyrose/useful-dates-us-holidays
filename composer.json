@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "geoffreyrose/useful-dates": "^1.0",
+        "geoffreyrose/useful-dates": "^1.1",
         "ext-calendar": "*"
     },
     "autoload": {
@@ -26,9 +26,9 @@
     ],
     "require-dev": {
         "laravel/pint": "^1.20",
-        "pestphp/pest": "^4.1"
+        "pestphp/pest": "^4.1",
+        "phpstan/phpstan": "^2.1"
     },
-    "minimum-stability": "dev",
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true

@@ -234,6 +234,11 @@ foreach ($dates as $date) {
 ./vendor/bin/pint   
 ```
 
+### Static Analysis
+```bash
+./vendor/bin/phpstan analyse src --memory-limit 2G
+```
+
 ### Testing
 
 ```

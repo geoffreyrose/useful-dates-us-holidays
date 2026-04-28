@@ -17,11 +17,16 @@ class Passover extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Nisan 15 in the Jewish calendar
         $greg = jdtogregorian(jewishtojd(8, 15, 3760 + $this->currentDate->year));
 
-        return Carbon::createFromFormat('m/d/Y', $greg)->startOfDay();
+        $date = Carbon::createFromFormat('m/d/Y', $greg);
+        if (is_null($date)) {
+            return null;
+        }
+
+        return $date->startOfDay();
     }
 }

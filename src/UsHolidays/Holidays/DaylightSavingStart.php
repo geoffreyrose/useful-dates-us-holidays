@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -23,14 +23,17 @@ class DaylightSavingStart extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-03-01 00:00:00");
-        if ($date->dayOfWeek !== CarbonInterface::SUNDAY) {
-            $date->next(CarbonInterface::SUNDAY);
+        if (is_null($date)) {
+            return null;
+        }
+        if ($date->dayOfWeek !== UnitValue::SUNDAY) {
+            $date->next(UnitValue::SUNDAY);
         }
         // Move to the following Sunday -> second Sunday in March
-        $date->next(CarbonInterface::SUNDAY);
+        $date->next(UnitValue::SUNDAY);
 
         return $date;
     }

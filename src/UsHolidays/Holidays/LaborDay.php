@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -23,11 +23,14 @@ class LaborDay extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1894;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-09-01 00:00:00");
-        if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
-            $date->next(CarbonInterface::MONDAY);
+        if (is_null($date)) {
+            return null;
+        }
+        if ($date->dayOfWeek !== UnitValue::MONDAY) {
+            $date->next(UnitValue::MONDAY);
         }
 
         return $date;

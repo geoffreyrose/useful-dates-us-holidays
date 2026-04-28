@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -23,14 +23,17 @@ class PresidentsDay extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1971;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Third Monday in February
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-02-01 00:00:00");
-        if ($date->dayOfWeek !== CarbonInterface::MONDAY) {
-            $date->next(CarbonInterface::MONDAY);
+        if (is_null($date)) {
+            return null;
         }
-        $date->next(CarbonInterface::MONDAY)->next(CarbonInterface::MONDAY);
+        if ($date->dayOfWeek !== UnitValue::MONDAY) {
+            $date->next(UnitValue::MONDAY);
+        }
+        $date->next(UnitValue::MONDAY)->next(UnitValue::MONDAY);
 
         return $date;
     }
