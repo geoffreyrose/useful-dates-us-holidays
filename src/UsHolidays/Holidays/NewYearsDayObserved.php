@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -25,18 +25,22 @@ class NewYearsDayObserved extends HolidayUsefulDateAbstract
 
     public function date(): ?Carbon
     {
-        if ($this->currentDate->month === CarbonInterface::DECEMBER) {
+        if ($this->currentDate->month === UnitValue::DECEMBER) {
             $date = new NewYearsDay()->setCurrentDate($this->currentDate->copy()->addYear())->date();
         } else {
             $date = new NewYearsDay()->setCurrentDate($this->currentDate)->date();
         }
 
-        if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
-            $date->next(CarbonInterface::MONDAY);
+        if (is_null($date)) {
+            return null;
+        }
+
+        if ($date->dayOfWeek === UnitValue::SUNDAY) {
+            $date->next(UnitValue::MONDAY);
 
             return $date;
-        } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
-            $date->previous(CarbonInterface::FRIDAY);
+        } elseif ($date->dayOfWeek === UnitValue::SATURDAY) {
+            $date->previous(UnitValue::FRIDAY);
 
             return $date;
         }

@@ -22,7 +22,7 @@ class NewYearsDay extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1885;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-01-01 00:00:00");
     }

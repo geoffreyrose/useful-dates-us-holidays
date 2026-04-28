@@ -22,7 +22,7 @@ class Juneteenth extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 2021;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-06-19 00:00:00");
     }

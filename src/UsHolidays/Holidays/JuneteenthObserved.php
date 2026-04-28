@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -27,14 +27,18 @@ class JuneteenthObserved extends HolidayUsefulDateAbstract
     {
         $date = new Juneteenth()->setCurrentDate($this->currentDate)->date();
 
-        if ($date->dayOfWeek === CarbonInterface::SUNDAY) {
+        if (is_null($date)) {
+            return null;
+        }
+
+        if ($date->dayOfWeek === UnitValue::SUNDAY) {
             if ($this->currentDate->copy()->subDay()->isBirthday($date)) {
-                $date->next(CarbonInterface::MONDAY);
+                $date->next(UnitValue::MONDAY);
 
                 return $date;
             }
-        } elseif ($date->dayOfWeek === CarbonInterface::SATURDAY) {
-            $date->previous(CarbonInterface::FRIDAY);
+        } elseif ($date->dayOfWeek === UnitValue::SATURDAY) {
+            $date->previous(UnitValue::FRIDAY);
 
             return $date;
         }

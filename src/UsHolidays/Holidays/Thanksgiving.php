@@ -3,7 +3,7 @@
 namespace UsefulDatesUsHolidays\Holidays;
 
 use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use Carbon\Constants\UnitValue;
 use UsefulDates\Enums\RepeatFrequency;
 use UsefulDatesUsHolidays\Abstracts\HolidayUsefulDateAbstract;
 
@@ -23,14 +23,17 @@ class Thanksgiving extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1789;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-11-01 00:00:00");
-        if ($date->dayOfWeek !== CarbonInterface::THURSDAY) {
-            $date->next(CarbonInterface::THURSDAY);
+        if (is_null($date)) {
+            return null;
+        }
+        if ($date->dayOfWeek !== UnitValue::THURSDAY) {
+            $date->next(UnitValue::THURSDAY);
         }
         // Advance to the 4th Thursday of November
-        $date->next(CarbonInterface::THURSDAY)->next(CarbonInterface::THURSDAY)->next(CarbonInterface::THURSDAY);
+        $date->next(UnitValue::THURSDAY)->next(UnitValue::THURSDAY)->next(UnitValue::THURSDAY);
 
         return $date;
     }

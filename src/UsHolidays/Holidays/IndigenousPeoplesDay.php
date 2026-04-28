@@ -22,7 +22,7 @@ class IndigenousPeoplesDay extends HolidayUsefulDateAbstract
         $this->federal_holiday_start_year = 1968;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Same as Columbus Day: second Monday in October
         return new ColumbusDay()->setCurrentDate($this->currentDate)->date();

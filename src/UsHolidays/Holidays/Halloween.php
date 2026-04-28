@@ -17,7 +17,7 @@ class Halloween extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-10-31 00:00:00");
     }

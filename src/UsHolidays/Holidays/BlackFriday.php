@@ -17,9 +17,13 @@ class BlackFriday extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         $date = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
+
+        if (is_null($date)) {
+            return null;
+        }
 
         return $date->addDay();
     }

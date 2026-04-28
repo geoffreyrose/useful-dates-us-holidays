@@ -17,10 +17,13 @@ class Easter extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         // Based on PHP's built-in easter_days() from March 21
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-03-21 00:00:00");
+        if (is_null($date)) {
+            return null;
+        }
         $days = \easter_days($this->currentDate->year);
 
         return $date->addDays($days);

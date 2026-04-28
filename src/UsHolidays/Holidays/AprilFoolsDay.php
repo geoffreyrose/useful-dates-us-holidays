@@ -17,7 +17,7 @@ class AprilFoolsDay extends HolidayUsefulDateAbstract
         $this->repeat_frequency = RepeatFrequency::YEARLY;
     }
 
-    public function date(): Carbon
+    public function date(): ?Carbon
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-04-01 00:00:00");
     }
