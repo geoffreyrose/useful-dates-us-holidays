@@ -23,7 +23,7 @@ class AshWednesday extends HolidayUsefulDateAbstract
         $easter = new Easter()->setCurrentDate($this->currentDate)->date();
 
         if (is_null($easter)) {
-            return null;
+            return null; // @codeCoverageIgnore
         }
 
         return $easter->copy()->subDays(46);

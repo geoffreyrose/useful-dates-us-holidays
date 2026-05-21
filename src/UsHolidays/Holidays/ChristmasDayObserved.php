@@ -28,7 +28,7 @@ class ChristmasDayObserved extends HolidayUsefulDateAbstract
         $date = new ChristmasDay()->setCurrentDate($this->currentDate)->date();
 
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         if ($date->dayOfWeek === UnitValue::SUNDAY) {

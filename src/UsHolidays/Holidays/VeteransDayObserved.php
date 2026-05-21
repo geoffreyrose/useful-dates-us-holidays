@@ -28,7 +28,7 @@ class VeteransDayObserved extends HolidayUsefulDateAbstract
         $date = new VeteransDay()->setCurrentDate($this->currentDate)->date();
 
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         if ($date->dayOfWeek === UnitValue::SUNDAY) {

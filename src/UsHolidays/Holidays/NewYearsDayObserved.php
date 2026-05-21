@@ -32,7 +32,7 @@ class NewYearsDayObserved extends HolidayUsefulDateAbstract
         }
 
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         if ($date->dayOfWeek === UnitValue::SUNDAY) {

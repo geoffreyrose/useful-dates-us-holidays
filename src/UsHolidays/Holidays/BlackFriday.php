@@ -22,7 +22,7 @@ class BlackFriday extends HolidayUsefulDateAbstract
         $date = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
 
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         return $date->addDay();

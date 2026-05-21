@@ -32,7 +32,7 @@ class OrthodoxEaster extends HolidayUsefulDateAbstract
         $dt = mktime(0, 0, 0, $month, $day + 13, $year);
 
         if ($dt === false) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         return Carbon::createFromTimestamp($dt)->startOfDay();

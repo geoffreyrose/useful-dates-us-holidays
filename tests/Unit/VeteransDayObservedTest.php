@@ -14,3 +14,9 @@ it('returns the observed date when Nov 11 is Saturday (observed Friday, 2023-11-
     $holiday->setCurrentDate(Carbon::create(2023, 11, 10)); // Friday observed date
     expect($holiday->date())->toEqual(Carbon::create(2023, 11, 10));
 });
+
+it('returns the observed date when Nov 11 is Sunday (observed Monday, 2018-11-12)', function (): void {
+    $holiday = new VeteransDayObserved;
+    $holiday->setCurrentDate(Carbon::create(2018, 11, 12)); // Monday observed date
+    expect($holiday->date())->toEqual(Carbon::create(2018, 11, 12));
+});
