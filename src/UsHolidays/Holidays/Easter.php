@@ -22,7 +22,7 @@ class Easter extends HolidayUsefulDateAbstract
         // Based on PHP's built-in easter_days() from March 21
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-03-21 00:00:00");
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
         $days = \easter_days($this->currentDate->year);
 

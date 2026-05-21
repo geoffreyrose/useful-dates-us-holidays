@@ -14,3 +14,9 @@ it('returns the observed date when July 4 is Saturday (observed Friday, 2020-07-
     $holiday->setCurrentDate(Carbon::create(2020, 7, 3)); // Friday observed date
     expect($holiday->date())->toEqual(Carbon::create(2020, 7, 3));
 });
+
+it('returns the observed date when July 4 is Sunday (observed Monday, 2021-07-05)', function (): void {
+    $holiday = new IndependenceDayObserved;
+    $holiday->setCurrentDate(Carbon::create(2021, 7, 5)); // Monday observed date
+    expect($holiday->date())->toEqual(Carbon::create(2021, 7, 5));
+});

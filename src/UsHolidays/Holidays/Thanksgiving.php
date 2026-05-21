@@ -27,7 +27,7 @@ class Thanksgiving extends HolidayUsefulDateAbstract
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-11-01 00:00:00");
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
         if ($date->dayOfWeek !== UnitValue::THURSDAY) {
             $date->next(UnitValue::THURSDAY);

@@ -16,3 +16,9 @@ it('returns the observed date when Dec 25 is Sunday (observed Monday, 2022-12-26
     $holiday->setCurrentDate(Carbon::create(2022, 12, 26)); // Monday observed date
     expect($holiday->date())->toEqual(Carbon::create(2022, 12, 26));
 });
+
+it('returns the observed date when Dec 25 is Saturday (observed Friday, 2021-12-24)', function (): void {
+    $holiday = new ChristmasDayObserved;
+    $holiday->setCurrentDate(Carbon::create(2021, 12, 24)); // Friday observed date
+    expect($holiday->date())->toEqual(Carbon::create(2021, 12, 24));
+});

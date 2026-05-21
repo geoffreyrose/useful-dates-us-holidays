@@ -23,7 +23,7 @@ class CyberMonday extends HolidayUsefulDateAbstract
         $thanksgiving = new Thanksgiving()->setCurrentDate($this->currentDate)->date();
 
         if (is_null($thanksgiving)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         return $thanksgiving->copy()->addDays(4);

@@ -14,3 +14,9 @@ it('returns the observed date when June 19 is Saturday (observed Friday, 2021-06
     $holiday->setCurrentDate(Carbon::create(2021, 6, 18)); // Friday observed date
     expect($holiday->date())->toEqual(Carbon::create(2021, 6, 18));
 });
+
+it('returns the observed date when June 19 is Sunday (observed Monday, 2022-06-20)', function (): void {
+    $holiday = new JuneteenthObserved;
+    $holiday->setCurrentDate(Carbon::create(2022, 6, 20)); // Monday observed date
+    expect($holiday->date())->toEqual(Carbon::create(2022, 6, 20));
+});

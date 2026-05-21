@@ -28,7 +28,7 @@ class ColumbusDay extends HolidayUsefulDateAbstract
         // Second Monday in October
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-10-01 00:00:00");
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         if ($date->dayOfWeek !== UnitValue::MONDAY) {

@@ -24,7 +24,7 @@ class Passover extends HolidayUsefulDateAbstract
 
         $date = Carbon::createFromFormat('m/d/Y', $greg);
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
 
         return $date->startOfDay();

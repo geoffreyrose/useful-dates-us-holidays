@@ -28,7 +28,7 @@ class MLKDay extends HolidayUsefulDateAbstract
         // Third Monday in January
         $date = Carbon::createFromFormat('Y-m-d H:i:s', "{$this->currentDate->year}-01-01 00:00:00");
         if (is_null($date)) {
-            return null;
+            return null;  // @codeCoverageIgnore
         }
         if ($date->dayOfWeek !== UnitValue::MONDAY) {
             $date->next(UnitValue::MONDAY);
